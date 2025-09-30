@@ -107,15 +107,12 @@ class VisionEditAdaptor(nn.Module):
                 similarity = torch.nn.functional.cosine_similarity(layer_outpt[:,-1,:], self.edit_reps[:,-1,:], dim=-1)
                 BATCH_SIM_LIST = similarity 
                 condition = (BATCH_SIM_LIST < THREHSHOLD).unsqueeze(-1).unsqueeze(1).expand(layer_input.size())
-                print("Image in if similarity:",BATCH_SIM_LIST)
             else:
                 condition = (BATCH_SIM_LIST < THREHSHOLD).unsqueeze(-1).unsqueeze(1).expand(layer_input.size())
-                print("Image in else similarity:",BATCH_SIM_LIST)
         else:
             similarity = torch.nn.functional.cosine_similarity(layer_outpt[:,-1,:], self.edit_reps[:,-1,:], dim=-1)
             BATCH_SIM_LIST = similarity 
             condition = (BATCH_SIM_LIST < THREHSHOLD).unsqueeze(-1).unsqueeze(1).expand(layer_input.size())
-            print("Image in if similarity:",BATCH_SIM_LIST)
 
         if self.inpt_vt_begin == None or self.inpt_vt_end == None:  
             raise BaseException('Have not set vision token range.')
