@@ -6,14 +6,15 @@ Official code for **COLM 2025** paper [*DualEdit: Dual Editing for Knowledge Upd
 </div>
 
 # Setup
-0. Install DualEdit environment.
+1. Install DualEdit environment.
 ```bash
 conda create -n dualedit python=3.9
 conda activate dualedit
 pip install -r requirements.txt
 ```
-1. Please download the E-EVQA and E-IC datasets from the URL provided in [EasyEdit](https://github.com/zjunlp/EasyEdit) and place the related folders in the `data` directory.
-2. Please modify the `ROOT_PATH` in `utils/GLOBAL.py` to the absolute path of the current directory.
+2. Please download the E-EVQA and E-IC datasets from the URL provided in [EasyEdit](https://github.com/zjunlp/EasyEdit) and place the related folders in the `data` directory.
+3. Please modify the `ROOT_PATH` in `utils/GLOBAL.py` to the absolute path of the current directory.
+4. Please download the [blip2-opt-2.7b](https://huggingface.co/Salesforce/blip2-opt-2.7b/tree/main) and [llava-1.5-7b-hf](https://huggingface.co/llava-hf/llava-1.5-7b-hf/tree/main), place the weights in the `models` directory.
 
 # Train DualEdit
 You can use the following script to train DualEdit:
